@@ -121,7 +121,7 @@ MonoBehaviour:
       height: 0
     selected: 0
     characterBoneId: -1
-    rotation: {x: 0.7040376, y: -0.06448609, z: 0.06450836, w: 0.70428073}
+    rotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
     colliderType: 1
     bounds:
       m_Center: {x: 0.007889498, y: 0.080083914, z: 0.06364572}
@@ -211,7 +211,7 @@ MonoBehaviour:
       height: 0
     selected: 0
     characterBoneId: -1
-    rotation: {x: 0.70414287, y: 0.06332628, z: -0.063348144, w: 0.704386}
+    rotation: {x: 0.7069847, y: 0, z: 0, w: 0.70722884}
     colliderType: 1
     bounds:
       m_Center: {x: -0.007889498, y: 0.080083914, z: 0.06364572}

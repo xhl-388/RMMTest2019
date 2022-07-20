@@ -28,7 +28,7 @@ namespace CP.Character
         {
             rb = GetComponent<Rigidbody>();
             animator = GetComponent<Animator>();
-            cam = Camera.main.transform;
+            cam = UnityEngine.Camera.main.transform;
 
             targets = GameObject.FindGameObjectsWithTag("Enemy");
 
