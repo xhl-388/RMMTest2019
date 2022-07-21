@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace CP.Character
 {
-    public class EnemyController : EntityController
+    public abstract class EntityController : MonoBehaviour
     {
+        [HideInInspector]
+        public bool isAttacking;
     }
-
 }

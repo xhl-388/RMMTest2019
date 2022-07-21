@@ -11,6 +11,7 @@ namespace CP.Interact
         private Rigidbody rb;
         private Collider col;
         private RagdollMecanimMixer.RamecanMixer ramecanMixer;
+        private bool dead;
 
         private void Awake()
         {
@@ -26,6 +27,7 @@ namespace CP.Interact
             animator.SetBool("dead", true);
             rb.isKinematic = true;
             col.enabled = false;
+            dead = true;
         }
 
         public bool TakeHit(GameObject go, Vector3 point, Vector3 impulse)
@@ -45,12 +47,18 @@ namespace CP.Interact
             if (true)
                 Die();
 
+            // 物理作用
             Rigidbody boneRb = go.GetComponent<Rigidbody>();
             boneRb.AddForceAtPosition(impulse.normalized * 400, point, ForceMode.Impulse);
             Vector3 dir = new Vector3(impulse.x, 0, impulse.z);
             rb.AddForce(dir.normalized * 400, ForceMode.Impulse);
 
             return true;
+        }
+
+        public bool CanHit()
+        {
+            return !dead;
         }
     }
 }

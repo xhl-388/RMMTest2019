@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CP.Character
 {
-    public class RobotController : MonoBehaviour
+    public class RobotController : EntityController
     {
         // TODO:look at enemy
         public Vector3 lookAtPos;
@@ -20,7 +20,6 @@ namespace CP.Character
         private Transform m_camera;
 
         private bool m_isRunning;
-        private bool m_isAttacking;
 
         // Use this for initialization
         void Start()
@@ -51,10 +50,10 @@ namespace CP.Character
             m_animator.SetFloat("direction", angle / 180);
             m_animator.SetFloat("velocity", m_inputVelocity);
 
-            m_isAttacking = m_animator.GetCurrentAnimatorStateInfo(0).IsTag("attack");
+            isAttacking = m_animator.GetCurrentAnimatorStateInfo(0).IsTag("attack");
             float time = m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 
-            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Default") || (m_isAttacking && time > 0.5f))
+            if (m_animator.GetCurrentAnimatorStateInfo(0).IsName("Default") || (isAttacking && time > 0.5f))
             {
                 if (Input.GetButtonDown("Fire1") && !m_isRunning)
                 {
@@ -88,7 +87,7 @@ namespace CP.Character
                 lookAtPos = pos;
             }
 
-            // For Test
+            // 按Q查看角色死亡
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 GetComponent<RagdollMecanimMixer.RamecanMixer>().BeginStateTransition("dead");

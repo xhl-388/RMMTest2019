@@ -2229,6 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitController: {fileID: 1661200656296014101}
+  entityController: {fileID: 1285754463}
 --- !u!1 &467529869734718828
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7b3ab08cf56164a9d214409b790f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacking: 0
   lookAtPos: {x: 0, y: 0, z: 0}
   lookAtTimer: 0
   lookAt: 0
