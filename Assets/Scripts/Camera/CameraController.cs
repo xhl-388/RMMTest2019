@@ -9,6 +9,7 @@ namespace CP.Camera
     {
         private Camera m_camera;
 
+        // Camera Property Begin
         private float minRotX = -20;
         private float maxRotX = 80;
 
@@ -18,6 +19,7 @@ namespace CP.Camera
         private float speed = 2;
         private float radius = 5;
         private float height = 0.5f;
+        // Camera Property End
 
         [SerializeField]
         private Transform target;

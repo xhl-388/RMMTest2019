@@ -2347,6 +2347,36 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!54 &1687101209
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8456936455887967813}
+  serializedVersion: 2
+  m_Mass: 70
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &1687101210
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8456936455887967813}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25187883
+  m_Height: 0.8655497
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.45426744, z: 0}
 --- !u!114 &1285754463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3000,7 +3030,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 18
       y: 25
-      width: 418
+      width: -22
       height: 18
     selected: 0
     characterBoneId: 2
@@ -3030,8 +3060,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 18
       y: 45
-      width: 82
-      height: 30
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 4
     rotation: {x: 0.7535917, y: -0.074147426, z: -0.0639557, w: 0.65000886}
@@ -3059,9 +3089,9 @@ MonoBehaviour:
     rect:
       serializedVersion: 2
       x: 18
-      y: 77
-      width: 82
-      height: 30
+      y: 101
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 5
     rotation: {x: 0.74754167, y: 0, z: 0, w: 0.6642149}
@@ -3089,9 +3119,9 @@ MonoBehaviour:
     rect:
       serializedVersion: 2
       x: 18
-      y: 109
-      width: 82
-      height: 30
+      y: 157
+      width: 40
+      height: 54
     selected: 1
     characterBoneId: 6
     rotation: {x: 0.7040376, y: -0.06448609, z: 0.06450836, w: 0.70428073}
@@ -3118,10 +3148,10 @@ MonoBehaviour:
     childIDs: 05000000
     rect:
       serializedVersion: 2
-      x: 103
+      x: 61
       y: 45
-      width: 85
-      height: 30
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 8
     rotation: {x: 0.7535916, y: 0.07414759, z: 0.06395584, w: 0.65000886}
@@ -3148,10 +3178,10 @@ MonoBehaviour:
     childIDs: 06000000
     rect:
       serializedVersion: 2
-      x: 103
-      y: 77
-      width: 85
-      height: 30
+      x: 61
+      y: 101
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 9
     rotation: {x: 0.7475417, y: 0, z: 0, w: 0.66421485}
@@ -3178,10 +3208,10 @@ MonoBehaviour:
     childIDs: 
     rect:
       serializedVersion: 2
-      x: 103
-      y: 109
-      width: 85
-      height: 30
+      x: 61
+      y: 157
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 10
     rotation: {x: 0.70414287, y: 0.06332628, z: -0.063348144, w: 0.704386}
@@ -3208,9 +3238,9 @@ MonoBehaviour:
     childIDs: 080000000b0000000c000000
     rect:
       serializedVersion: 2
-      x: 192
+      x: 104
       y: 45
-      width: 244
+      width: 119
       height: 18
     selected: 0
     characterBoneId: 12
@@ -3238,10 +3268,10 @@ MonoBehaviour:
     childIDs: 09000000
     rect:
       serializedVersion: 2
-      x: 192
+      x: 104
       y: 65
-      width: 101
-      height: 30
+      width: 40
+      height: 66
     selected: 0
     characterBoneId: 14
     rotation: {x: 0.72920465, y: -0.29955053, z: -0.23378156, w: 0.56910133}
@@ -3268,10 +3298,10 @@ MonoBehaviour:
     childIDs: 0a000000
     rect:
       serializedVersion: 2
-      x: 192
-      y: 97
-      width: 101
-      height: 30
+      x: 104
+      y: 133
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 15
     rotation: {x: 0.62593395, y: -0.20019154, z: -0.22961122, w: 0.71791977}
@@ -3298,10 +3328,10 @@ MonoBehaviour:
     childIDs: 
     rect:
       serializedVersion: 2
-      x: 192
-      y: 129
-      width: 101
-      height: 18
+      x: 104
+      y: 189
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 16
     rotation: {x: 0.48946446, y: -0.026695961, z: -0.40252277, w: 0.77310246}
@@ -3328,7 +3358,7 @@ MonoBehaviour:
     childIDs: 
     rect:
       serializedVersion: 2
-      x: 296
+      x: 147
       y: 65
       width: 33
       height: 18
@@ -3358,10 +3388,10 @@ MonoBehaviour:
     childIDs: 0d000000
     rect:
       serializedVersion: 2
-      x: 332
+      x: 183
       y: 65
-      width: 104
-      height: 30
+      width: 40
+      height: 66
     selected: 0
     characterBoneId: 34
     rotation: {x: 0.7292058, y: 0.2995458, z: 0.2337784, w: 0.56910366}
@@ -3388,10 +3418,10 @@ MonoBehaviour:
     childIDs: 0e000000
     rect:
       serializedVersion: 2
-      x: 332
-      y: 97
-      width: 104
-      height: 30
+      x: 183
+      y: 133
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 35
     rotation: {x: 0.625934, y: 0.2001916, z: 0.22961123, w: 0.71791965}
@@ -3418,10 +3448,10 @@ MonoBehaviour:
     childIDs: 
     rect:
       serializedVersion: 2
-      x: 332
-      y: 129
-      width: 104
-      height: 30
+      x: 183
+      y: 189
+      width: 40
+      height: 54
     selected: 0
     characterBoneId: 36
     rotation: {x: 0.50156415, y: 0.09621532, z: 0.27646708, w: 0.8140897}
@@ -4135,36 +4165,6 @@ MonoBehaviour:
       angularLimits: 1
   currentState: 0
   ragdollContainer: {fileID: 467529868926180936}
---- !u!54 &1687101209
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8456936455887967813}
-  serializedVersion: 2
-  m_Mass: 70
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!136 &1687101210
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8456936455887967813}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25187883
-  m_Height: 0.8655497
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.45426744, z: 0}
 --- !u!1001 &467529868457774924
 PrefabInstance:
   m_ObjectHideFlags: 0
