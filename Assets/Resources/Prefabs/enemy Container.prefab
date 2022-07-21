@@ -1344,6 +1344,7 @@ GameObject:
   - component: {fileID: 5477286009865623250}
   - component: {fileID: 5509861114399282676}
   - component: {fileID: 5510390190188398510}
+  - component: {fileID: 1193816006261631}
   m_Layer: 10
   m_Name: enemy
   m_TagString: Enemy
@@ -1380,7 +1381,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a6eba330f63ecc04aaa464bb47747b54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2142,6 +2143,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225a09f15e8281843985a00024fd48ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1193816006261631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612828911131664960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b64674d8a4174408570157ebf51c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBodyParts:
+  - {fileID: 5612866019914634970}
+  - {fileID: 5613253339466365456}
+  - {fileID: 5612796554968404280}
+  - {fileID: 5613732514391284814}
 --- !u!1 &5612857819098929924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,6 +2264,7 @@ GameObject:
   - component: {fileID: 5476933135133705206}
   - component: {fileID: 5557789831065156780}
   - component: {fileID: 5746881921117355174}
+  - component: {fileID: 1657411694067665}
   m_Layer: 9
   m_Name: hand.L
   m_TagString: Untagged
@@ -2391,6 +2410,18 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1657411694067665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612919469303408366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ffb97c6a1ea54e8a8818f5e1f4d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5612930441935811812
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,6 +3565,7 @@ GameObject:
   - component: {fileID: 5477007735332010932}
   - component: {fileID: 5557895070847507692}
   - component: {fileID: 5747188453324109806}
+  - component: {fileID: 1881097843351609}
   m_Layer: 9
   m_Name: hand.R
   m_TagString: Untagged
@@ -3679,6 +3711,18 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1881097843351609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613267675230566662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ffb97c6a1ea54e8a8818f5e1f4d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5613285942776884728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3795,6 +3839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5616006387753406630}
+  - component: {fileID: 1763167145585373}
   m_Layer: 0
   m_Name: enemy Container
   m_TagString: Enemy
@@ -3818,6 +3863,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763167145585373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613376827148284898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad1433cc8adcf74583aa7b7e9b39127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitController: {fileID: 1193816006261631}
 --- !u!1 &5613409636518074012
 GameObject:
   m_ObjectHideFlags: 0

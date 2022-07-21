@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 467529867919258634}
   - component: {fileID: 467529867919258636}
   - component: {fileID: 467529867919258637}
+  - component: {fileID: 245198341}
   m_Layer: 9
   m_Name: Right_Wrist_Joint_01
   m_TagString: Untagged
@@ -631,6 +632,18 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &245198341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467529867919258635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ffb97c6a1ea54e8a8818f5e1f4d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467529868040387372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1709,7 @@ GameObject:
   - component: {fileID: 467529869078995713}
   - component: {fileID: 467529869078995715}
   - component: {fileID: 467529869078995712}
+  - component: {fileID: 126147192}
   m_Layer: 9
   m_Name: Left_Wrist_Joint_01
   m_TagString: Untagged
@@ -1841,6 +1855,18 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &126147192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467529869078995726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725ffb97c6a1ea54e8a8818f5e1f4d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467529869278475349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 467529869719503268}
+  - component: {fileID: 198988571}
   m_Layer: 0
   m_Name: Robot Kyle Container
   m_TagString: Untagged
@@ -2189,6 +2216,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &198988571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467529869719503269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad1433cc8adcf74583aa7b7e9b39127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitController: {fileID: 1661200656296014101}
 --- !u!1 &467529869734718828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4069,7 +4109,101 @@ MonoBehaviour:
       positionAccuracy: 0.3
       rotationAccuracy: 1
       angularLimits: 1
-  - name: death
+  - name: dead
+    transitionSmooth: 1
+    transitionTimer: 1
+    bonesStates:
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 0
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+    - isKinematic: 0
+      onlyAnimation: 0
+      selfCollision: 1
+      positionAccuracy: 0
+      rotationAccuracy: 1
+      angularLimits: 1
+  - name: dead
     transitionSmooth: 1
     transitionTimer: 1
     bonesStates:
@@ -4165,6 +4299,22 @@ MonoBehaviour:
       angularLimits: 1
   currentState: 0
   ragdollContainer: {fileID: 467529868926180936}
+--- !u!114 &1661200656296014101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8456936455887967813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b64674d8a4174408570157ebf51c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitBodyParts:
+  - {fileID: 467529869305540243}
+  - {fileID: 467529868040387372}
+  - {fileID: 467529868076885641}
 --- !u!1001 &467529868457774924
 PrefabInstance:
   m_ObjectHideFlags: 0

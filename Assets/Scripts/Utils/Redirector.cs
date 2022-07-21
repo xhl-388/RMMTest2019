@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using CP.Interact;
+
 
 namespace CP.Utils
 {
     public class Redirector : MonoBehaviour
     {
-
+        public HitController hitController;
     }
 }

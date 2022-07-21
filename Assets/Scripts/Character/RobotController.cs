@@ -91,7 +91,7 @@ namespace CP.Character
             // For Test
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                GetComponent<RagdollMecanimMixer.RamecanMixer>().BeginStateTransition("death");
+                GetComponent<RagdollMecanimMixer.RamecanMixer>().BeginStateTransition("dead");
             }
         }
 
