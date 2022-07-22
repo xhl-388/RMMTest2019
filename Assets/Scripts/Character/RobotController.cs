@@ -9,7 +9,14 @@ namespace CP.Character
         // TODO:look at enemy
         public Vector3 lookAtPos;
         public float lookAtTimer;
-        public bool lookAt;
+
+        private bool p_lookAt;
+        public bool lookAt { get => p_lookAt;
+            set
+            {
+                p_lookAt = value;
+                m_cameraController.SetLookAt(value);
+            } }
 
         public GameObject[] targets;
 
@@ -18,6 +25,7 @@ namespace CP.Character
         private Rigidbody m_rigidbody;
         private Animator m_animator;
         private Transform m_camera;
+        private Camera.CameraController m_cameraController;
 
         private bool m_isRunning;
 
@@ -27,6 +35,7 @@ namespace CP.Character
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
             m_camera = UnityEngine.Camera.main.transform;
+            m_cameraController = m_camera.GetComponent<Camera.CameraController>();
 
             targets = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -46,9 +55,21 @@ namespace CP.Character
             m_inputDirection = Quaternion.Euler(0, m_camera.rotation.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
             m_inputVelocity = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
 
-            float angle = Vector3.SignedAngle(transform.forward, m_inputDirection, Vector3.up);
-            m_animator.SetFloat("direction", angle / 180);
-            m_animator.SetFloat("velocity", m_inputVelocity);
+            if (lookAt)
+            {
+                float angle = Vector3.SignedAngle(transform.forward, m_inputDirection, Vector3.up);
+                m_animator.SetFloat("direction", angle / 180);
+                m_animator.SetFloat("velocity", m_inputVelocity);
+            }
+            else
+            {
+                if (m_inputDirection != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.FromToRotation(Vector3.forward, m_inputDirection.normalized);
+                }
+                m_animator.SetFloat("direction", 0) ;
+                m_animator.SetFloat("velocity", m_inputVelocity);
+            }
 
             isAttacking = m_animator.GetCurrentAnimatorStateInfo(0).IsTag("attack");
             float time = m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
@@ -76,21 +97,30 @@ namespace CP.Character
                 m_isRunning = false;
             }
 
-            Vector3 pos = transform.TransformPoint(new Vector3(0, 0.6f, 1));
-            if (lookAtTimer > 0)
-            {
-                lookAtTimer -= Time.deltaTime;
-                lookAtPos = Vector3.Lerp(lookAtPos, pos, (2 - lookAtTimer) / 2);
-            }
-            else
-            {
-                lookAtPos = pos;
-            }
+            //Vector3 pos = transform.TransformPoint(new Vector3(0, 0.6f, 1));
+            //if (lookAtTimer > 0)
+            //{
+            //    lookAtTimer -= Time.deltaTime;
+            //    lookAtPos = Vector3.Lerp(lookAtPos, pos, (2 - lookAtTimer) / 2);
+            //}
+            //else
+            //{
+            //    lookAtPos = pos;
+            //}
 
-            // 按Q查看角色死亡
+            // 按Q锁定敌人
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                GetComponent<RagdollMecanimMixer.RamecanMixer>().BeginStateTransition("dead");
+                lookAt = !lookAt;
+                if (lookAt)
+                {
+                    lookAtPos = transform.TransformPoint(targets[0].transform.position);
+                }
+            }
+
+            if (lookAt)
+            {
+                lookAtPos = transform.TransformPoint(targets[0].transform.position);
             }
         }
 
