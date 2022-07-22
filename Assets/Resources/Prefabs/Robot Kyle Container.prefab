@@ -4316,6 +4316,8 @@ MonoBehaviour:
   - {fileID: 467529869305540243}
   - {fileID: 467529868040387372}
   - {fileID: 467529868076885641}
+  hitDamage: 64000000320000001e000000
+  maxHealth: 100
 --- !u!1001 &467529868457774924
 PrefabInstance:
   m_ObjectHideFlags: 0

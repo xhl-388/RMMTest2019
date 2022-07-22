@@ -2161,6 +2161,8 @@ MonoBehaviour:
   - {fileID: 5613253339466365456}
   - {fileID: 5612796554968404280}
   - {fileID: 5613732514391284814}
+  hitDamage: 32000000280000003c00000064000000
+  maxHealth: 100
 --- !u!114 &829969983424819571
 MonoBehaviour:
   m_ObjectHideFlags: 0

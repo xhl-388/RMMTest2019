@@ -7,58 +7,73 @@ namespace CP.Interact
     public class HitController : MonoBehaviour
     {
         public GameObject[] hitBodyParts;
-        private Animator animator;
-        private Rigidbody rb;
-        private Collider col;
-        private RagdollMecanimMixer.RamecanMixer ramecanMixer;
-        private bool dead;
+        public int[] hitDamage;
+
+        private Animator m_animator;
+        private Rigidbody m_rigidbody;
+        private Collider m_collider;
+        private RagdollMecanimMixer.RamecanMixer m_ramecanMixer;
+
+        [SerializeField]
+        private int maxHealth = 100;
+        private int m_currentHealth;
+        private bool m_isDead;
 
         private void Awake()
         {
-            animator = GetComponent<Animator>();
-            rb = GetComponent<Rigidbody>();
-            col = GetComponent<Collider>();
-            ramecanMixer = GetComponent<RagdollMecanimMixer.RamecanMixer>();
+            m_animator = GetComponent<Animator>();
+            m_rigidbody = GetComponent<Rigidbody>();
+            m_collider = GetComponent<Collider>();
+            m_ramecanMixer = GetComponent<RagdollMecanimMixer.RamecanMixer>();
+            m_currentHealth = maxHealth;
+
+            Debug.Assert(hitBodyParts.Length == hitDamage.Length);
         }
 
         public void Die()
         {
-            ramecanMixer.BeginStateTransition("dead");
-            animator.SetBool("dead", true);
-            rb.isKinematic = true;
-            col.enabled = false;
-            dead = true;
+            m_ramecanMixer.BeginStateTransition("dead");
+            m_animator.SetBool("dead", true);
+            m_rigidbody.isKinematic = true;
+            m_collider.enabled = false;
+            m_isDead = true;
+
+            Debug.Log(string.Format("{0} just died !", name));
         }
 
         public bool TakeHit(GameObject go, Vector3 point, Vector3 impulse)
         {
-            bool hit = false;
-            foreach (GameObject bone in hitBodyParts)
+            int hitBoneIdx = -1;
+            for(int i  = 0; i < hitBodyParts.Length; i++)
             {
-                if (go == bone)
+                if(go == hitBodyParts[i])
                 {
-                    hit = true;
+                    hitBoneIdx = i;
                     break;
                 }
             }
-            if (!hit) return false;
 
-            // TODO: 条件待明确
-            if (true)
+            if (hitBoneIdx < 0) return false;
+
+            m_currentHealth = Mathf.Max(m_currentHealth - hitDamage[hitBoneIdx], 0);
+            if (m_currentHealth == 0)
                 Die();
+
+            Debug.Log(string.Format("{0} take {1} damage", name, hitDamage[hitBoneIdx]));
 
             // 物理作用
             Rigidbody boneRb = go.GetComponent<Rigidbody>();
-            boneRb.AddForceAtPosition(impulse.normalized * 400, point, ForceMode.Impulse);
+            float force = 400 * (m_isDead ? 1 : 0.8f);
+            boneRb.AddForceAtPosition(impulse.normalized * force, point, ForceMode.Impulse);
             Vector3 dir = new Vector3(impulse.x, 0, impulse.z);
-            rb.AddForce(dir.normalized * 400, ForceMode.Impulse);
+            m_rigidbody.AddForce(dir.normalized * force, ForceMode.Impulse);
 
             return true;
         }
 
         public bool CanHit()
         {
-            return !dead;
+            return !m_isDead;
         }
     }
 }
