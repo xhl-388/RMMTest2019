@@ -13,6 +13,7 @@ namespace CP.Interact
         private Rigidbody m_rigidbody;
         private Collider m_collider;
         private RagdollMecanimMixer.RamecanMixer m_ramecanMixer;
+        private Utils.Redirector m_redirector;
 
         [SerializeField]
         private int maxHealth = 100;
@@ -25,6 +26,7 @@ namespace CP.Interact
             m_rigidbody = GetComponent<Rigidbody>();
             m_collider = GetComponent<Collider>();
             m_ramecanMixer = GetComponent<RagdollMecanimMixer.RamecanMixer>();
+            m_redirector = transform.parent.GetComponent<Utils.Redirector>();
             m_currentHealth = maxHealth;
 
             Debug.Assert(hitBodyParts.Length == hitDamage.Length);
@@ -38,7 +40,7 @@ namespace CP.Interact
             m_collider.enabled = false;
             m_isDead = true;
 
-            Debug.Log(string.Format("{0} just died !", name));
+            m_redirector.entityController.Die();
         }
 
         public bool TakeHit(GameObject go, Vector3 point, Vector3 impulse)

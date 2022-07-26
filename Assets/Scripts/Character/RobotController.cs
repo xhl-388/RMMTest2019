@@ -29,8 +29,7 @@ namespace CP.Character
 
         private bool m_isRunning;
 
-        // Use this for initialization
-        void Start()
+        private void Start()
         {
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
@@ -44,13 +43,12 @@ namespace CP.Character
 
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
+
         }
 
-
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             m_inputDirection = Quaternion.Euler(0, m_camera.rotation.eulerAngles.y, 0) * new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
             m_inputVelocity = Mathf.Max(Mathf.Abs(Input.GetAxis("Horizontal")), Mathf.Abs(Input.GetAxis("Vertical")));
@@ -125,13 +123,18 @@ namespace CP.Character
         }
 
 
-        void OnAnimatorIK()
+        private void OnAnimatorIK()
         {
             if (lookAt)
             {
                 m_animator.SetLookAtWeight(1, 0.5f);
                 m_animator.SetLookAtPosition(lookAtPos);
             }
+        }
+
+        public override void Die()
+        {
+            Debug.Log(string.Format("Player {0} Died!", name));
         }
     }
 }

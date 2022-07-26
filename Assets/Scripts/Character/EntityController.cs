@@ -8,5 +8,7 @@ namespace CP.Character
     {
         [HideInInspector]
         public bool isAttacking;
+
+        public abstract void Die();
     }
 }
