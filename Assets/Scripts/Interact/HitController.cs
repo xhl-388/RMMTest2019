@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using CP.Utils;
 
 namespace CP.Interact
 {
@@ -8,6 +10,8 @@ namespace CP.Interact
     {
         public GameObject[] hitBodyParts;
         public int[] hitDamage;
+
+        public BodyHitEvent OnHitEvent = new BodyHitEvent();
 
         private Animator m_animator;
         private Rigidbody m_rigidbody;
@@ -59,9 +63,13 @@ namespace CP.Interact
 
             if (hitBoneIdx < 0) return false;
 
+            // 到这里就是受击逻辑了
+
             m_currentHealth = Mathf.Max(m_currentHealth - hitDamage[hitBoneIdx], 0);
             if (m_currentHealth == 0)
                 Die();
+
+            OnHitEvent?.Invoke(hitDamage[hitBoneIdx], m_currentHealth, maxHealth);
 
             Debug.Log(string.Format("{0} take {1} damage", name, hitDamage[hitBoneIdx]));
 
