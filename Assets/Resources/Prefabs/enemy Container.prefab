@@ -1383,7 +1383,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: a6eba330f63ecc04aaa464bb47747b54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2180,6 +2180,7 @@ MonoBehaviour:
   OnEnemyDieEvent:
     m_PersistentCalls:
       m_Calls: []
+  lookAt: 0
 --- !u!114 &1825029251
 MonoBehaviour:
   m_ObjectHideFlags: 0

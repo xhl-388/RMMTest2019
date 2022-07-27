@@ -20,6 +20,8 @@ namespace CP.Interact
         private int m_currentHealth;
         private bool m_isDead;
 
+        public bool IsDead { get { return m_isDead; } }
+
         private void Awake()
         {
             m_animator = GetComponent<Animator>();
