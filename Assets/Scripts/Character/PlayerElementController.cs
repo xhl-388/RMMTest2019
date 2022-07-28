@@ -38,5 +38,19 @@ namespace CP.Character
             return m_elements[idx];
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                // for test
+                if (currentSize==2&& m_elements[0] == Element.O && m_elements[1] == Element.O)
+                {
+                    GetComponent<BackpackManager>().AddMatter("O2");
+                    currentSize = 0;
+                    OnElementChangeEvent.Invoke(this);
+                }
+            }
+        }
+
     }
 }

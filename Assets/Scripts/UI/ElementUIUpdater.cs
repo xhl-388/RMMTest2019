@@ -9,13 +9,17 @@ namespace CP.UI
     {
         private PlayerElementController m_playerElementController;
         private Transform m_elementUI;
-        private Text[] m_elementTexts;
+        private Text[] m_elementTexts = new Text[3];
 
         private void Awake()
         {
             m_playerElementController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerElementController>();
             m_elementUI = GameObject.FindGameObjectWithTag("MainCanvas").transform.Find("ElementContainer");
-            m_elementTexts = m_elementUI.GetComponentsInChildren<Text>();
+            for(int i = 0; i < 3; i++)
+            {
+                Debug.Log(string.Format("Text{0}", i));
+                m_elementTexts[i] = m_elementUI.Find(string.Format("Text{0}", i)).GetComponent<Text>();
+            }
         }
 
         private void Start()
@@ -28,7 +32,7 @@ namespace CP.UI
                 }
                 for(int i = pec.currentSize; i < PlayerElementController.MaxElementSize; i++)
                 {
-                    m_elementTexts[i].text = "N";
+                    m_elementTexts[i].text = "NAE";
                 }
             });
         }

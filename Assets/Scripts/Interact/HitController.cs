@@ -49,7 +49,7 @@ namespace CP.Interact
             m_redirector.entityController.Die();
         }
 
-        public bool TakeHit(GameObject go, Vector3 point, Vector3 impulse)
+        public bool TakeHit(GameObject go, Vector3 point, Vector3 impulse, bool deadly)
         {
             int hitBoneIdx = -1;
             for(int i  = 0; i < hitBodyParts.Length; i++)
@@ -64,14 +64,15 @@ namespace CP.Interact
             if (hitBoneIdx < 0) return false;
 
             // 到这里就是受击逻辑了
+            int damage = deadly ? maxHealth : hitDamage[hitBoneIdx];
 
-            m_currentHealth = Mathf.Max(m_currentHealth - hitDamage[hitBoneIdx], 0);
+            m_currentHealth = Mathf.Max(m_currentHealth - damage, 0);
             if (m_currentHealth == 0)
                 Die();
 
-            OnHitEvent?.Invoke(hitDamage[hitBoneIdx], m_currentHealth, maxHealth);
+            OnHitEvent?.Invoke(damage, m_currentHealth, maxHealth);
 
-            Debug.Log(string.Format("{0} take {1} damage", name, hitDamage[hitBoneIdx]));
+            Debug.Log(string.Format("{0} take {1} damage", name, damage));
 
             // 物理作用
             Rigidbody boneRb = go.GetComponent<Rigidbody>();

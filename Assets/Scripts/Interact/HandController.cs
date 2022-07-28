@@ -32,7 +32,7 @@ namespace CP.Interact
             HitController targetHitController = targetRedirector.hitController;
             if (!targetHitController.CanHit())
                 return;
-            if (targetHitController.TakeHit(collision.gameObject, collision.contacts[0].point, m_rigidbody.velocity))
+            if (targetHitController.TakeHit(collision.gameObject, collision.contacts[0].point, m_rigidbody.velocity, false))
             {
                 Debug.Log("HIT DA~ZE~ ☆");
             }
