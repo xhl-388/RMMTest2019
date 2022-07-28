@@ -9,4 +9,10 @@ namespace CP.Utils
     {
 
     }
+
+    [SerializeField]
+    public class ElementChangeEvent:UnityEvent<Character.PlayerElementController>
+    {
+
+    }
 }
