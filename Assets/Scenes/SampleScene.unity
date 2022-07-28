@@ -191,7 +191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 61%
+  m_Text: 65%
 --- !u!222 &62379367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a5a2b07842dbb44ad57a610e32d8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _value: 0.61
+  _value: 0.65
   _mainSprite: {fileID: 21300000, guid: 514ed009b2da4b243a949ce3a08d5217, type: 3}
   _maskSprite: {fileID: 21300000, guid: 04d3d1147b6945040936cc9ff5319f24, type: 3}
   _textureWrapMode: 0
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1196033888}
   - component: {fileID: 1196033887}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: MainCanvas
   m_TagString: MainCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

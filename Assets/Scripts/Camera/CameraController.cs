@@ -52,7 +52,10 @@ namespace CP.Camera
             rotX -= Input.GetAxis("Mouse Y");
             rotX = Mathf.Clamp(rotX, minRotX, maxRotX);
             rotY += Input.GetAxis("Mouse X");
-            rotY = Mathf.Sign(rotY) * (Mathf.Abs(rotY) % 360.0f);
+            if (rotY > 360)
+                rotY -= 360;
+            if (rotY < -360)
+                rotY += 360;
 
             Quaternion rot = Quaternion.Euler(rotX, rotY, 0);
             Vector3 tp = target.position;

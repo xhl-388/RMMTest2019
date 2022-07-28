@@ -47,8 +47,6 @@ namespace CP.Character
             m_rigidbody = GetComponent<Rigidbody>();
             m_animator = GetComponent<Animator>();
             m_hitController = GetComponent<HitController>();
-
-            m_target = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
         private void Update()
@@ -73,6 +71,12 @@ namespace CP.Character
 
             isAttacking = m_animator.GetCurrentAnimatorStateInfo(0).IsTag("attack");
             float time = m_animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
+
+            if (!m_target)
+            {
+                return;
+            }
 
             float dist = Vector3.Distance(m_target.position, m_rigidbody.position);
             if (dist <= 0.6f && !m_isRun)
@@ -119,6 +123,16 @@ namespace CP.Character
                 m_animator.SetLookAtWeight(1, 0.5f);
                 m_animator.SetLookAtPosition(m_target.position);
             }
+        }
+
+        public void SetTarget(Transform t)
+        {
+            m_target = t;
+        }
+
+        public void ClearTarget()
+        {
+            m_target = null;
         }
     }
 
